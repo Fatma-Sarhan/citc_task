@@ -33,6 +33,7 @@ h3 {
     line-height: 30px;
 }
 
+
 img { max-width: 100%; }
 
 ::-moz-selection { background: #de615e; color: #fff; text-shadow: none; }
@@ -125,6 +126,7 @@ img { max-width: 100%; }
 }
 
 .form-top-left h3 { margin-top: 0; color: #fff; }
+.form-top-left h4 { margin-top: 0; color: #fff; }
 .form-top-left p { opacity: 0.8; color: #fff; }
 
 .form-top-right {

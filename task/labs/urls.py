@@ -18,6 +18,7 @@ from django.contrib import admin
 from labs.views import *
 urlpatterns = [
      url(r'^$',index),
+     url(r'^signin$',signin),
 
     ]
 
