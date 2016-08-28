@@ -11,6 +11,8 @@
 
 
 	<body>
+
+	{% if user.is_authenticated %}
 	<div id="cont">
 	 <div id="wrapper">
 	 <h3> Patient information </h3>
@@ -67,10 +69,20 @@
 	  </table>
 	 </div>
 
-	 	<a href="/labs/logout_view" class="btn btn-info btn-lg">
+	 	<a href="/logout_view" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-log-out"></span> Log out
         </a>
         </div>
+        {% else %}
+        	<h1> You must login first </h1>
+
+        	<a id="login" href="/" class="btn btn-info btn-lg">
+	          <span class="glyphicon glyphicon-log-in"></span> Log in
+	        </a>
+	        </div>
+
+
+         {% endif %}
 
     
 	  <script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script> 

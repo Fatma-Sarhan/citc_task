@@ -27,7 +27,7 @@ def signin(request):
 	username = request.POST.get('username','')
 	password = request.POST.get('password','')
 	user = authenticate(username=username, password=password)
-	if not request.POST.get('remember_me'):
+	if not request.POST.get('remember_me',''):
 		request.session.set_expiry(0)
 		# print "fatma"
 		# return HttpResponseRedirect('loggedin')
