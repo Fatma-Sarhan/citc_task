@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+	</head>
+
+
+
+	<body>
+	<div id="cont">
+	 <div id="wrapper">
+	 <h3> Patient information </h3>
+	 <h4> Name : {{request.user.first_name}}  {{request.user.last_name}} </h4>
+	 <h4> National_id : {{request.user.username}} </h4>
+	 <h4>Address : {{profile.address}}</h4>
+
+	 </div>
+	 <br><br>
+
+	 <div id="wrapper">
+	  <h3>Bloodtests Result</h3>
+	 
+	  <table id="keywords" cellspacing="0" cellpadding="0">
+	    <thead>
+	      <tr>
+	        <th><span>WBC (white blood cells) </span><br> Normal values(5-10) unit</th>
+	        <th><span>RBC (red blood cells)</span><br> Normal values(4.2-6.1)unit</th>
+	        <th><span>Platelets</span><br> Normal values(150-450) unit</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>{{ b_test.wbc }}</td>
+	        <td>{{ b_test.rbc }}</td>
+	        <td>{{ b_test.platelets }}</td>
+	      </tr>
+	
+	    </tbody>
+	  </table>
+	 </div>
+	 
+	 <div id="wrapper">
+	
+	  <h3>Livertests Result</h3>
+	  
+	  
+	  <table id="keywords" cellspacing="0" cellpadding="0">
+	    <thead>
+	      <tr>
+	        <th><span>SGOT OR AST</span><br> Normal values(5-40)unit</th>
+	        <th><span>SGPT OR ALT</span><br> Normal values(7-56)unit</th>
+	        <th><span>Albumin</span><br> Normal values(3.5 to 5.0) g/dL</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      <tr>
+	        <td>{{ l_test.sgot }}</td>
+	        <td>{{ l_test.sgpt }}</td>
+	        <td>{{ l_test.albumin}}</td>
+	      </tr>
+	
+	    </tbody>
+	  </table>
+	 </div>
+
+	 	<a href="/labs/logout_view" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+        </div>
+
+    
+	  <script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script> 
+	  <script src="{% static 'assets/js/jquery.tablesorter.min.js' %}"></script>
+	  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+	  <script src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
+	  <script src="{% static 'assets/js/home.js' %}"></script>
+	</body>
+
+	
+</html>
