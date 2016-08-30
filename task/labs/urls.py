@@ -23,7 +23,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
      url(r'^$',index),
      url(r'^signin$',signin),
-      url(r'^home$',home),
+     url(r'^home$',home),
      url(r'^logout_view$',logout_view),
 
     ]

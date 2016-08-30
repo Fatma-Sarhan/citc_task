@@ -7,6 +7,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
 from .models import Bloodtest,Livertest,UserProfile
 from django.core.context_processors import csrf
+from django.contrib.auth.models import User,Group
 from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
@@ -27,16 +28,20 @@ def signin(request):
 	username = request.POST.get('username','')
 	password = request.POST.get('password','')
 	user = authenticate(username=username, password=password)
+	pat_group = Group.objects.get(pk=3)
 	if not request.POST.get('remember_me',''):
 		request.session.set_expiry(0)
 		# print "fatma"
 		# return HttpResponseRedirect('loggedin')
 
 	if user is not None:
-		auth_login(request, user)
-		# return HttpResponse('User is valid, active and authenticated')
-
-		return HttpResponseRedirect('home')
+		pat = user.groups.filter(name='Patients').exists()
+		if pat:
+			auth_login(request, user)
+			return HttpResponseRedirect('home')
+		else:
+			return HttpResponseRedirect('admin')
+		
 	else:
 		message = "Invalid username or password please try again !"
 		return render(request,'labs/index.html',{'message':message})
